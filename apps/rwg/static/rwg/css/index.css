@@ -1,0 +1,12 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+main {
+    text-align: center;
+}
+
+p {
+    border: 1px solid black;
+}
