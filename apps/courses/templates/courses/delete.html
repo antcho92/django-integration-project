@@ -10,7 +10,7 @@
         <h1>Are you sure you want to delete the following course?</h1>
         <p>Name: {{course.name}}</p>
         <p>Description: {{course.description}}</p>
-        <a href='/'><button type="button" name="no">No</button></a>
-        <a href="/courses/confirm/{{course.id}}"><button type="button" name="Delete">Yes! I want to delete this</button></a>
+        <a href="{% url 'courses:index' %}"><button type="button" name="no">No</button></a>
+        <a href="{% url 'courses:confirm_destroy' id=course.id %}"><button type="button" name="Delete">Yes! I want to delete this</button></a>
     </body>
 </html>

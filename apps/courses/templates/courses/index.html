@@ -34,7 +34,7 @@
                     <th>{{course.name}}</th>
                     <th>{{course.description}}</th>
                     <th>{{course.created_at}}</th>
-                    <th><a href="/courses/destroy/{{course.id}}">Remove</a></th>
+                    <th><a href="{% url 'courses:destroy' id=course.id %}">Remove</a></th>
                 </tr>
             {% endfor %}
         </table>

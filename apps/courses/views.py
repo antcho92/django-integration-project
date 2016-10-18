@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 # Create your views here.
 def index(request):
     context = {
-        'courses': Course.objects.all()
+        'courses': Course.objects.all().order_by('name')
     }
     return render(request, 'courses/index.html', context)
 
@@ -27,4 +27,4 @@ def destroy(request, id):
     return render(request, 'courses/delete.html', context)
 def confirm_destroy(request, id):
     Course.objects.get(id=id).delete()
-    return redirect(index)
+    return redirect('/courses')
