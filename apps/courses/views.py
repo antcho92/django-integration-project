@@ -28,3 +28,6 @@ def destroy(request, id):
 def confirm_destroy(request, id):
     Course.objects.get(id=id).delete()
     return redirect('/courses')
+
+def users_courses(request):
+    return render(request, 'courses/users_courses.html')

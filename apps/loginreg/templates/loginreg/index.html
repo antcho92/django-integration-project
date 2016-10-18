@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Login</h1>
-        <form action="/login" method="post">
+        <form action="{% url 'user:login' %}" method="post">
             {% csrf_token %}
             <input type="text" name="email" value="" placeholder="Email">
             <input type="text" name="pw" value="" placeholder="Password">
@@ -22,7 +22,7 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <form action="/register" method="post">
+        <form action="{% url 'user:register' %}" method="post">
             {% csrf_token %}
             <input type="text" name="first_name" value="" placeholder="First name">
             <input type="text" name="last_name" value="" placeholder="Last name">

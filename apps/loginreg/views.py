@@ -30,7 +30,7 @@ def register(request):
         else:
             for error in validation[1]:
                 # add errors to flash messages
-                messages.add_message(request, messages.ERROR, error)
+                messages.error(request, error)
             return redirect('/')
     else:
         return redirect('/')

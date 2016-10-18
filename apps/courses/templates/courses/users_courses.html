@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Users Courses Table</title>
+    </head>
+    <body>
+        <form class="" action="#" method="post">
+            <select class="" name="user">
+                <option value="" disabled selected>Users</option>
+                {% for user in users %}
+                    <option value="">{{user.first_name}} {{user.last_name}}</option>
+                {% endfor %}
+            </select>
+            <select class="" name="course">
+                <option value="" disabled selected>Courses</option>
+                {% for course in courses %}
+                    <option value="">{{course.name}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" name="name" value="Add User To Course">
+        </form>
+        <table>
+            <tr>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Number of users</th>
+            </tr>
+            {% for course in courses %}
+                <tr>
+                    <th>{{course.name}}</th>
+                    <th>{{course.description}}</th>
+                    <th>{{course.created_at}}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

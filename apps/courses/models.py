@@ -25,6 +25,7 @@ class CourseManager(models.Manager):
 class Course(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
+    users = models.ManyToManyField(User)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = CourseManager()
