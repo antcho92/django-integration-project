@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Course
+from ..loginreg.models import User
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.db.models import Count
 
 # Create your views here.
 def index(request):
@@ -30,4 +32,22 @@ def confirm_destroy(request, id):
     return redirect('/courses')
 
 def users_courses(request):
-    return render(request, 'courses/users_courses.html')
+    courses = Course.objects.annotate(number_of_users=Count('users'))
+    print(len(courses))
+    print(courses[4].number_of_users)
+    print(courses[1].name)
+
+    context = {
+        'courses': courses,
+        'users': User.objects.all().order_by('id')
+    }
+    return render(request, 'courses/users_courses.html', context)
+
+def add_user(request):
+    if request.method == 'POST':
+        course = Course.objects.get(id=request.POST['course'])
+        print(course)
+        user = User.objects.get(id=request.POST['user'])
+        print(user)
+        course.users.add(user)
+    return redirect(reverse('courses:users_courses'))

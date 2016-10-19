@@ -5,17 +5,18 @@
         <title>Users Courses Table</title>
     </head>
     <body>
-        <form class="" action="#" method="post">
+        <form class="" action="{% url 'courses:add_user_to_course' %}" method="post">
+            {% csrf_token %}
             <select class="" name="user">
                 <option value="" disabled selected>Users</option>
                 {% for user in users %}
-                    <option value="">{{user.first_name}} {{user.last_name}}</option>
+                    <option value="{{user.id}}">{{user.first_name}} {{user.last_name}} - {{user.email}}</option>
                 {% endfor %}
             </select>
             <select class="" name="course">
                 <option value="" disabled selected>Courses</option>
                 {% for course in courses %}
-                    <option value="">{{course.name}}</option>
+                    <option value="{{course.id}}">{{course.name}}</option>
                 {% endfor %}
             </select>
             <input type="submit" name="name" value="Add User To Course">
@@ -30,7 +31,7 @@
                 <tr>
                     <th>{{course.name}}</th>
                     <th>{{course.description}}</th>
-                    <th>{{course.created_at}}</th>
+                    <th>{{course.number_of_users}}</th>
                 </tr>
             {% endfor %}
         </table>
