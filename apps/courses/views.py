@@ -32,11 +32,7 @@ def confirm_destroy(request, id):
     return redirect('/courses')
 
 def users_courses(request):
-    courses = Course.objects.annotate(number_of_users=Count('users'))
-    print(len(courses))
-    print(courses[4].number_of_users)
-    print(courses[1].name)
-
+    courses = Course.objects.annotate(number_of_users=Count('users')).order_by('name')
     context = {
         'courses': courses,
         'users': User.objects.all().order_by('id')

@@ -23,14 +23,14 @@
         {% endif %}
         <h2>Courses</h2>
         <table>
-            <tr>
+            <tr class='row1'>
                 <th>Course Name</th>
                 <th>Description</th>
                 <th>Date Added</th>
                 <th>Action</th>
             </tr>
             {% for course in courses %}
-                <tr>
+                <tr class="{% cycle 'row2' 'row1' %}">
                     <th>{{course.name}}</th>
                     <th>{{course.description}}</th>
                     <th>{{course.created_at}}</th>

@@ -13,3 +13,10 @@ li {
 .success {
     color: green;
 }
+
+.row1 {
+    background: #CCC;
+}
+.row2 {
+    background: #FFF;
+}

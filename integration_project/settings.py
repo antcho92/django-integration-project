@@ -33,9 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'apps.loginreg',
     'apps.courses',
-    'apps.ninjagold',
-    'apps.rwg',
-    'apps.surveyform',
+    # 'apps.ninjagold',
+    # 'apps.rwg',
+    # 'apps.surveyform',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
